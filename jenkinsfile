@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+
+    stages {
+
+       stages ('build Docker Image') {
+            steps {
+                script {
+                    dockerapp = docker.build ("aluisio/kube-news:${env.BUILD_ID}", '-f ./src/Dockerfile ./src')
+                }
+            }  
+       }
+       
+    }
+    
+}
+
+
+
+
+
+
